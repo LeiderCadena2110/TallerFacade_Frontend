@@ -1,0 +1,170 @@
+/* ═══════════════════════════════════════
+   components.css — Botones, badges, cards,
+   formularios, modales, toast
+   ═══════════════════════════════════════ */
+
+/* ── Botones ─────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .15s;
+}
+.btn-primary           { background: var(--accent); color: white; }
+.btn-primary:hover     { background: var(--accent-dark); }
+.btn-block             { width: 100%; justify-content: center; }
+.btn-outline           { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
+.btn-outline:hover     { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+
+/* ── Formularios ─────────────────────── */
+.form-group              { margin-bottom: 1.25rem; }
+.form-group label        { display: block; font-size: .825rem; font-weight: 500; color: var(--muted); margin-bottom: .4rem; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: .7rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: .9rem;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color .2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--accent); }
+.form-group textarea       { resize: vertical; }
+select option              { color: var(--text); }
+
+/* ── Cards ───────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.card-title { font-size: .8rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+.card-value { font-size: 1.9rem; font-weight: 600; margin-top: .25rem; }
+.card-sub   { font-size: .8rem; color: var(--muted); margin-top: .2rem; }
+
+/* ── Badges ──────────────────────────── */
+.badge {
+  display: inline-block;
+  padding: .25rem .6rem;
+  border-radius: 6px;
+  font-size: .7rem;
+  font-weight: 600;
+}
+.badge-green  { background: var(--green-bg);  color: #065f46; }
+.badge-blue   { background: var(--accent-bg); color: #0369a1; }
+.badge-yellow { background: var(--yellow-bg); color: #92400e; }
+.badge-red    { background: var(--red-bg);    color: #991b1b; }
+.badge-purple { background: var(--purple-bg); color: #5b21b6; }
+
+/* ── Avatar ──────────────────────────── */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-bg);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .8rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ── Modal ───────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
+}
+.modal h3          { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 1.25rem; }
+.modal-actions     { display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.5rem; }
+.modal-summary     { background: var(--bg); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1rem; font-size: .875rem; line-height: 1.7; }
+
+/* ── Toast ───────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: #1e293b;
+  color: white;
+  padding: .875rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: .875rem;
+  z-index: 200;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  animation: slideIn .25s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tabs ────────────────────────────── */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 1.5rem;
+  gap: .25rem;
+}
+.tab {
+  padding: .6rem 1.25rem;
+  font-size: .875rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: all .15s;
+}
+.tab:hover      { color: var(--text); background: var(--bg); }
+.tab.active     { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.tab-content    { display: none; }
+.tab-content.active { display: block; }
+
+/* ── Misc helpers ────────────────────── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+.section-header h3 { font-size: 1rem; font-weight: 600; }
+.grid-2            { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+/* ── Responsive ──────────────────────── */
+@media (max-width: 900px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
